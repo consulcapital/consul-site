@@ -16,6 +16,14 @@
       gtag('js', new Date());
       gtag('config', 'G-LQR73SPG6X');
     </script>
+    <!-- Track mailto: link clicks in GA4 -->
+    <script>
+      document.addEventListener('click', function (event) {
+        var link = event.target.closest('a[href^="mailto:"]');
+        if (!link) return;
+        gtag('event', 'mailto_click', { mailto_href: link.getAttribute('href') });
+      });
+    </script>
   </head>
   <body>
     <main class="page">
